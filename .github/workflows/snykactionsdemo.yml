@@ -8,7 +8,11 @@ runs-on:
   ubuntu-latest
 -name: 
     Snyk test
+    steps:
+        - uses: actions/checkout@master
+        - uses: snyk/actions/setup@master
+        - uses: actions/setup-go@v1
 env:
-SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 run: 
-snyk test --all-projects
+  snyk test https://github.com/snyk/java-reachability-playground
