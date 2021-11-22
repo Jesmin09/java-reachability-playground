@@ -1,18 +1,13 @@
-name: 
-  Snyk test
-on: 
-  push
+name:  Snyk test
+on:  push
 jobs:
-security:
-runs-on: 
-  ubuntu-latest
--name: 
-    Snyk test
+  security:
+    runs-on: ubuntu-latest
+    env:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
     steps:
-        - uses: actions/checkout@master
-        - uses: snyk/actions/setup@master
-        - uses: actions/setup-go@v1
-env:
-  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-run: 
-  snyk test https://github.com/snyk/java-reachability-playground
+      - uses: actions/checkout@master
+      - uses: snyk/actions/setup@master
+      - uses: actions/setup-go@v1
+      - name: Snyk test
+        run: snyk test https://github.com/snyk/java-reachability-playground
