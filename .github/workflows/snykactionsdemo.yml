@@ -10,4 +10,4 @@ jobs:
       - uses: snyk/actions/setup@master
       - uses: actions/setup-go@v1
       - name: Snyk test
-        run: snyk test https://github.com/snyk/java-reachability-playground
+        run: snyk test --all-projects
