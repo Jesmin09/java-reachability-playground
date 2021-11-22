@@ -1,10 +1,14 @@
-name: Snyk test
-on: push
+name: 
+  Snyk test
+on: 
+  push
 jobs:
 security:
-runs-on: ubuntu-latest
-- name: Snyk test
+runs-on: 
+  ubuntu-latest
+-name: 
+    Snyk test
 env:
-SNYK_TOKEN:
-#SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-run: snyk test --all-projects
+SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+run: 
+snyk test --all-projects
